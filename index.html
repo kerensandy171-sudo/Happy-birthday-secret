@@ -473,21 +473,29 @@
       // Music Player
       const musicToggle = document.getElementById("musicToggle");
       const audio = new Audio(
-        "https://youtu.be/90w2RegGf9w?si=2T4v6Xo1GGoE91sw",
-      ); // Ganti dengan lagu romantis
+        "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      );
+      // Ganti dengan lagu romantis
       audio.loop = true;
       audio.volume = 0.3;
 
       // Lagu romantis alternatif (uncomment salah satu):
       const audio = new Audio(
-        "https://youtu.be/90w2RegGf9w?si=2T4v6Xo1GGoE91sw",
+        "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
       );
       // const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAo');
 
       musicToggle.addEventListener("click", () => {
         if (audio.paused) {
-          audio.play();
-          musicToggle.textContent = "⏸️";
+          audio
+            .play()
+            .then(() => {
+              // ← Tambah ini
+              musicToggle.textContent = "⏸️";
+            })
+            .catch(() => {
+              alert("Klik lagi untuk musik! 🎶");
+            });
         } else {
           audio.pause();
           musicToggle.textContent = "▶️";
@@ -549,10 +557,10 @@
         // Kirim ke WhatsApp / Email / Telegram (pilih salah satu)
 
         // OPSI 1: WhatsApp (GANTI NOMOR HP KAMU)
-        const phone = "+6282174264381"; // ← GANTI NOMOR HP KAMU!
+        const phone = "82174264381"; // ← GANTI NOMOR HP KAMU!
         const whatsappText = `Halo ${name}! 💕\n\nAku mau bilang:\n${message}\n\nMakasih ya udah kirim ucapan ulang tahun yang super romantis! 😍`;
         window.open(
-          `https://wa.me/${phone}?text=${encodeURIComponent(whatsappText)}`,
+          `https://wa.me/62${phone}?text=${encodeURIComponent(whatsappText)}`,
           "_blank",
         );
 
