@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🎂 SELAMAT ULANG TAHUN Sayangku! 🥰</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(-45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+        cursor: none;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Music Player */
+      .music-player {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 1rem;
+        border-radius: 50px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(20px);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: #ff6b6b;
+      }
+
+      .music-btn {
+        background: #ff6b6b;
+        color: white;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+      }
+
+      .music-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 5px 15px rgba(255, 107, 107, 0.5);
+      }
+
+      /* Custom Cursor */
+      .cursor {
+        position: fixed;
+        width: 20px;
+        height: 20px;
+        background: radial-gradient(circle, #ff6b6b, transparent);
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 9999;
+        transition: transform 0.1s ease;
+        mix-blend-mode: difference;
+      }
+
+      /* Konfeti & Hearts */
+      .konfeti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        background: #ff6b6b;
+        animation: konfeti-fall 3s linear infinite;
+        pointer-events: none;
+      }
+
+      @keyframes konfeti-fall {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
+
+      .hearts {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 5;
+      }
+
+      .heart {
+        position: absolute;
+        font-size: 20px;
+        color: #ff69b4;
+        animation: float 6s infinite linear;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Main Container */
+      .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        text-align: center;
+        position: relative;
+        z-index: 10;
+        padding: 20px;
+      }
+
+      .cake {
+        font-size: 8rem;
+        animation: bounce 2s infinite;
+        margin-bottom: 2rem;
+        filter: drop-shadow(0 20px 20px rgba(0, 0, 0, 0.3));
+      }
+
+      @keyframes bounce {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-30px);
+        }
+        60% {
+          transform: translateY(-15px);
+        }
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: white;
+        text-shadow:
+          3px 3px 0px #ff6b6b,
+          6px 6px 0px #feca57;
+        margin-bottom: 1rem;
+        animation: rainbow 3s infinite;
+      }
+
+      @keyframes rainbow {
+        0% {
+          filter: hue-rotate(0deg);
+        }
+        100% {
+          filter: hue-rotate(360deg);
+        }
+      }
+
+      .subtitle {
+        font-size: 1.8rem;
+        color: white;
+        margin-bottom: 2rem;
+        font-weight: 300;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .message {
+        background: rgba(255, 255, 255, 0.95);
+        padding: 3rem;
+        border-radius: 30px;
+        max-width: 600px;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(20px);
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        margin-bottom: 2rem;
+        animation: slideUp 1s ease-out;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .message h2 {
+        font-size: 2rem;
+        color: #ff6b6b;
+        margin-bottom: 1.5rem;
+      }
+
+      .message p {
+        font-size: 1.3rem;
+        line-height: 1.8;
+        color: #333;
+        margin-bottom: 1rem;
+      }
+
+      /* Reply Form */
+      .reply-section {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 107, 107, 0.95),
+          rgba(254, 202, 87, 0.95)
+        );
+        padding: 2.5rem;
+        border-radius: 25px;
+        max-width: 500px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(20px);
+        margin-top: 2rem;
+        animation: slideUp 1.5s ease-out 0.5s both;
+      }
+
+      .reply-section h3 {
+        color: white;
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .reply-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .reply-input {
+        padding: 1rem 1.5rem;
+        border: none;
+        border-radius: 25px;
+        font-size: 1.1rem;
+        font-family: "Poppins", sans-serif;
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .reply-input:focus {
+        outline: none;
+        transform: scale(1.02);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .reply-btn {
+        background: linear-gradient(45deg, #ff6b6b, #feca57);
+        color: white;
+        border: none;
+        padding: 1.2rem 2.5rem;
+        font-size: 1.2rem;
+        font-weight: 600;
+        border-radius: 30px;
+        cursor: pointer;
+        box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .reply-btn:hover {
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 25px 50px rgba(255, 107, 107, 0.6);
+      }
+
+      .success-message {
+        display: none;
+        background: #48dbfb;
+        color: white;
+        padding: 1.5rem;
+        border-radius: 20px;
+        margin-top: 1rem;
+        animation: bounceIn 0.5s ease;
+      }
+
+      @keyframes bounceIn {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.1);
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      .btn-party {
+        background: linear-gradient(45deg, #ff6b6b, #feca57);
+        color: white;
+        border: none;
+        padding: 1.5rem 3rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        border-radius: 50px;
+        cursor: pointer;
+        box-shadow: 0 20px 40px rgba(255, 107, 107, 0.4);
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 2rem;
+      }
+
+      .btn-party:hover {
+        transform: translateY(-10px) scale(1.1);
+        box-shadow: 0 30px 60px rgba(255, 107, 107, 0.6);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .cake {
+          font-size: 5rem;
+        }
+        h1 {
+          font-size: 2.5rem;
+        }
+        .subtitle {
+          font-size: 1.4rem;
+        }
+        .message {
+          padding: 2rem;
+          margin: 1rem;
+        }
+        .music-player {
+          top: 10px;
+          right: 10px;
+          padding: 0.8rem;
+          font-size: 0.8rem;
+        }
+        .music-btn {
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+      .dance {
+        animation: wiggle 0.5s infinite alternate;
+      }
+      @keyframes wiggle {
+        0% {
+          transform: rotate(-3deg);
+        }
+        100% {
+          transform: rotate(3deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Music Player -->
+    <div class="music-player">
+      <button class="music-btn" id="musicToggle">🎵</button>
+      <span>Lagu Cinta Otomatis ♫</span>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+
+    <!-- Konfeti & Hearts -->
+    <div class="hearts" id="hearts"></div>
+
+    <div class="container">
+      <div class="cake dance">🎂🍰🎂</div>
+      <h1>SELAMAT ULANG TAHUN!</h1>
+      <p class="subtitle">
+        Untuk [NAMA CRUSH KAMU] yang paling manis di dunia ini 🥰✨
+      </p>
+
+      <div class="message">
+        <h2>💕 Pesan Spesial dari Seseorang yang Ngefans Banget 💕</h2>
+        <p>
+          Hey cantik! 🎈 Hari ini kamu bertambah tua 1 tahun, tapi tetep aja
+          makin <span class="dance">imut</span> kayak bayi panda! 🐼
+        </p>
+        <p>
+          Tiap hari liat kamu tuh kayak lagi nonton film romcom terbaik. Bikin
+          hati dag dig dug terus! 😍❤️
+        </p>
+        <p>
+          Doaku sih, semoga umurmu panjang, sehat walafiat, dan yang paling
+          penting... <strong>cepet bales chatku!</strong> 😜😂
+        </p>
+        <p>Selamat ulang tahun ya sayangku! Mwah mwah! 💋💋</p>
+      </div>
+
+      <button class="btn-party" onclick="partyMode()">
+        🎉 PARTAI ULANG TAHUN! 🎉
+      </button>
+
+      <!-- Reply Form -->
+      <div class="reply-section">
+        <h3>💌 Balas Pesan Pengirim yuk! 💌</h3>
+        <form class="reply-form" onsubmit="sendReply(event)">
+          <input
+            type="text"
+            class="reply-input"
+            id="replyName"
+            placeholder="Nama kamu yang manis 😘"
+            required
+          />
+          <textarea
+            class="reply-input"
+            id="replyMessage"
+            rows="4"
+            placeholder="Tulis balasan romantis buat dia... 💕"
+            required
+          ></textarea>
+          <button type="submit" class="reply-btn">
+            🚀 Kirim Balasan Sekarang!
+          </button>
+        </form>
+        <div class="success-message" id="successMsg">
+          🎉 Woohoo! Pesan berhasil terkirim! Dia pasti senyum lebar sekarang 😍
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Music Player
+      const musicToggle = document.getElementById("musicToggle");
+      const audio = new Audio(
+        "https://www.soundjay.com/misc/sounds/bell-ringing-05.wav",
+      ); // Ganti dengan lagu romantis
+      audio.loop = true;
+      audio.volume = 0.3;
+
+      // Lagu romantis alternatif (uncomment salah satu):
+      // const audio = new Audio('https://www.soundjay.com/human/sounds/laugh-2.mp3');
+      // const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAo');
+
+      musicToggle.addEventListener("click", () => {
+        if (audio.paused) {
+          audio.play();
+          musicToggle.textContent = "⏸️";
+        } else {
+          audio.pause();
+          musicToggle.textContent = "▶️";
+        }
+      });
+
+      // Custom Cursor
+      const cursor = document.getElementById("cursor");
+      document.addEventListener("mousemove", (e) => {
+        cursor.style.left = e.clientX + "px";
+        cursor.style.top = e.clientY + "px";
+      });
+
+      // Konfeti & Hearts
+      function createKonfeti() {
+        const hearts = document.getElementById("hearts");
+
+        for (let i = 0; i < 5; i++) {
+          const konfeti = document.createElement("div");
+          konfeti.className = "konfeti";
+          konfeti.style.left = Math.random() * 100 + "%";
+          konfeti.style.background = `hsl(${Math.random() * 360}, 70%, 60%)`;
+          konfeti.style.animationDelay = Math.random() * 3 + "s";
+          konfeti.style.animationDuration = Math.random() * 3 + 2 + "s";
+          hearts.appendChild(konfeti);
+          setTimeout(() => konfeti.remove(), 5000);
+        }
+
+        for (let i = 0; i < 3; i++) {
+          const heart = document.createElement("div");
+          heart.className = "heart";
+          heart.innerHTML = ["💖", "💕", "💗"][Math.floor(Math.random() * 3)];
+          heart.style.left = Math.random() * 100 + "%";
+          heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+          heart.style.fontSize = Math.random() * 10 + 15 + "px";
+          hearts.appendChild(heart);
+          setTimeout(() => heart.remove(), 7000);
+        }
+      }
+
+      setInterval(createKonfeti, 400);
+
+      // Party Mode
+      function partyMode() {
+        for (let i = 0; i < 100; i++) {
+          setTimeout(() => createKonfeti(), i * 30);
+        }
+        document.body.style.animation = "shake 0.5s infinite";
+        setTimeout(() => (document.body.style.animation = ""), 2000);
+      }
+
+      // Reply Form
+      function sendReply(event) {
+        event.preventDefault();
+        const name = document.getElementById("replyName").value;
+        const message = document.getElementById("replyMessage").value;
+        const successMsg = document.getElementById("successMsg");
+
+        // Kirim ke WhatsApp / Email / Telegram (pilih salah satu)
+
+        // OPSI 1: WhatsApp (GANTI NOMOR HP KAMU)
+        const phone = "6281234567890"; // ← GANTI NOMOR HP KAMU!
+        const whatsappText = `Halo ${name}! 💕\n\nAku mau bilang:\n${message}\n\nMakasih ya udah kirim ucapan ulang tahun yang super romantis! 😍`;
+        window.open(
+          `https://wa.me/${phone}?text=${encodeURIComponent(whatsappText)}`,
+          "_blank",
+        );
+
+        // OPSI 2: Email (uncomment kalau mau)
+        // window.location.href = `mailto:emailkamu@gmail.com?subject=Balasan dari ${name}&body=${encodeURIComponent(message)}`;
+
+        // OPSI 3: Telegram (uncomment kalau mau)
+        // window.open(`https://t.me/yourusername?text=${encodeURIComponent(`${name}: ${message}`)}`);
+
+        // Show success
+        successMsg.style.display = "block";
+        document.querySelector(".reply-form").reset();
+
+        // Auto hide success
+        setTimeout(() => {
+          successMsg.style.display = "none";
+        }, 5000);
+
+        // Party effect
+        partyMode();
+      }
+
+      // Auto start music & party
+      window.onload = () => {
+        setTimeout(() => {
+          audio.play().catch(() => {}); // Auto play (mungkin diblok browser)
+          musicToggle.textContent = "⏸️";
+          partyMode();
+        }, 1000);
+      };
+
+      // Add shake animation
+      const style = document.createElement("style");
+      style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-5px); }
+                75% { transform: translateX(5px); }
+            }
+        `;
+      document.head.appendChild(style);
+    </script>
+  </body>
+</html>
